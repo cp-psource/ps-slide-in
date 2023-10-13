@@ -3,7 +3,7 @@
 Plugin Name: PS Slide-In
 Plugin URI: https://n3rds.work/piestingtal-source-project/ps-slide-in/
 Description: Erstelle und verwalte schöne Marketingbotschaften und konvertiere dann Deine Zielgruppe so, dass sie nicht gestört wird.
-Version: 1.3.9
+Version: 1.4.0
 Text Domain: wdsi
 Author: WMS N@W
 Author URI: https://n3rds.work
@@ -32,7 +32,7 @@ $MyUpdateChecker = PucFactory::buildUpdateChecker(
 	'ps-slide-in' 
 );
 
-define ('WDSI_CURRENT_VERSION', '1.3.9');
+define ('WDSI_CURRENT_VERSION', '1.4.0');
 define ('WDSI_PLUGIN_SELF_DIRNAME', basename(dirname(__FILE__)));
 define ('WDSI_PROTOCOL', (is_ssl() ? 'https://' : 'http://'));
 
