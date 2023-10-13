@@ -47,38 +47,53 @@ function toggle_reshow_conditions () {
 	return false;
 }
 
-function init_services () {
-	/* ----- Sortables ----- */
-	var $lis = $("#wdsi-services li"),
-		$old = $("#wdsi-services").replaceWith("<ul id='wdsi-services' class='wdsi-services-service_hub' /><ul id='wdsi-disabled_services' class='wdsi-services-service_hub' />"),
-		$enabled = $("#wdsi-services"),
-		$disabled = $("#wdsi-disabled_services")
-	;
-	function init_sortables () {
-		$(".wdsi-services-service_hub").empty();
-		$lis.each(function () {
-			var $me = $(this),
-				$hub = $me.is(".wdsi-disabled") ? $disabled : $enabled
-			;
-			$hub.append($me);
-			$me.find('input[name*="services"]').off("change").on("change", function () {
-				var $in = $(this);
-				if ($in.is(":checked")) $me.removeClass("wdsi-disabled");
-				else $me.addClass("wdsi-disabled");
-				init_sortables();
-			});
-		});
-		//$enabled.sortable("destroy").sortable({});
-		if ($enabled.is(".ui-sortable")) $enabled.sortable("destroy");
-		$enabled.sortable({});
-	}
-	init_sortables();
+function init_services() {
+    /* ----- Sortables ----- */
+    var $enabled = $("#wdsi-services");
+    var $disabled = $("#wdsi-disabled_services");
+    var $lis = $enabled.find("li");
 
-	$(".wdsi_remove_service").click(function() {
-		$(this).parents('li.wdsi-service-item').remove();
-		return false;
-	});
+    function init_sortables() {
+        $lis.each(function() {
+            var $me = $(this);
+            var $hub = $me.is(".wdsi-disabled") ? $disabled : $enabled;
+
+            $hub.append($me);
+        });
+
+        $enabled.sortable({
+            items: "li",
+            update: function(event, ui) {
+                // Code to handle sorting update if needed
+            }
+        });
+
+        $lis.find('input[name*="services"]').on("change", function() {
+            var $in = $(this);
+            var $me = $in.closest("li");
+            
+            if ($in.is(":checked")) {
+                $me.removeClass("wdsi-disabled");
+            } else {
+                $me.addClass("wdsi-disabled");
+            }
+
+            init_sortables();
+        });
+    }
+
+    init_sortables();
+
+    $(".wdsi_remove_service").on("click", function() {
+        $(this).closest('li.wdsi-service-item').remove();
+        return false;
+    });
 }
+
+// Aufrufen der Funktion nach dem Laden der Seite
+$(document).ready(function() {
+    init_services();
+});
 
 $(function () {
 

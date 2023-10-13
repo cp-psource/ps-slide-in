@@ -46,7 +46,7 @@ function mailchimp_subscribe (root) {
 }
 
 $(function () {
-$(".wdsi-mailchimp-subscribe").click(function () {
+$(".wdsi-mailchimp-subscribe").on("click", function () {
 	mailchimp_subscribe($(this).parents(".wdsi-mailchimp-root"));
 	return false;
 });

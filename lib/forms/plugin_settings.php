@@ -2,7 +2,7 @@
 	<div class="icon32 icon32-settings-slide_in" id="icon-settings"><br></div>
 	<h2><?php echo __('Globale Einstellungen', 'wdsi');?></h2>
 
-	<form action="" method="post" class="wpmudev-ui">
+	<form action="" method="post" class="psource-ui">
 
 		<?php settings_fields('wdsi_options_page'); ?>
 		<?php do_settings_sections('wdsi_options_page'); ?>

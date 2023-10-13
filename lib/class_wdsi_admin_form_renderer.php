@@ -60,7 +60,7 @@ class Wdsi_AdminFormRenderer {
 				break;
 		}
 		
-		$percentage_select = '<div class="wpmudev-ui-select"><select name="wdsi[show_after-rule]" ' . ($percentage ? '' : 'disabled="disabled"') . '>';
+		$percentage_select = '<div class="psource-ui-select"><select name="wdsi[show_after-rule]" ' . ($percentage ? '' : 'disabled="disabled"') . '>';
 		for ($i=1; $i<100; $i++) {
 			$selected = ($i == $value) ? 'selected="selected"' : '';
 			$percentage_select .= "<option value='{$i}' {$selected}>{$i}&nbsp;</option>";
@@ -78,7 +78,7 @@ class Wdsi_AdminFormRenderer {
 		echo '<div>' .
 			'<input type="radio" name="wdsi[show_after-condition]" value="selector" id="wdsi-show_after-selector" ' . $selector . ' /> ' .
 			'<label for="wdsi-show_after-selector">' .
-				__('Nachricht anzeigen, nachdem an einem Element mit dieser ID vorbei gescrollt wurde:', 'wdsi') .
+				__('Nachricht anzeigen, nachdem an einem Element mit dieser ID vorbei gescrollt wurde', 'wdsi') .
 				': #' .
 			'</label>' .
 			'<input type="text" size="8" class="medium" name="wdsi[show_after-rule]" id="" value="' . ($selector ? esc_attr($value) : '') . '" ' . ($selector ? '' : 'disabled="disabled"') . ' />' .
@@ -106,7 +106,7 @@ class Wdsi_AdminFormRenderer {
 		);
 
 		// Time
-		echo "<div class='wpmudev-ui-select'><select name='wdsi[show_for-time]'>";
+		echo "<div class='psource-ui-select'><select name='wdsi[show_for-time]'>";
 		foreach ($_times as $_time) {
 			$selected = $_time == $time ? 'selected="selected"' : '';
 			echo "<option value='{$_time}' {$selected}>{$_time}</option>";
@@ -114,7 +114,7 @@ class Wdsi_AdminFormRenderer {
 		echo "</select></div>";
 
 		// Unit
-		echo "<div class='wpmudev-ui-select'><select name='wdsi[show_for-unit]'>";
+		echo "<div class='psource-ui-select'><select name='wdsi[show_for-unit]'>";
 		foreach ($_units as $key => $_unit) {
 			$selected = $key == $unit ? 'selected="selected"' : '';
 			echo "<option value='{$key}' {$selected}>{$_unit}</option>";
@@ -130,7 +130,7 @@ class Wdsi_AdminFormRenderer {
 		'</div>';
 		echo '<div class="wdsi-on_hide-condition">' .
 			$this->_create_radiobox('on_hide', 'page', true) .
-			'<label for="on_hide-page">' . __('Nachrichten auf dieser Seite für den Besucher verstecken', 'wdsi') . '</label>' .
+			'<label for="on_hide-page">' . __('Nachrichten auf dieser Seite oder diesem Beitrag für den Besucher verstecken', 'wdsi') . '</label>' .
 		'</div>';
 		echo '<div class="wdsi-on_hide-condition">' .
 			$this->_create_radiobox('on_hide', 'all', true) .
@@ -148,14 +148,14 @@ class Wdsi_AdminFormRenderer {
 		$reshow_after_time = $enabled ? $this->_get_option('reshow_after-time') : false;
 		$reshow_after_units = $enabled ? $this->_get_option('reshow_after-units') : false;
 
-		$time_box = "<div class='wpmudev-ui-select'><select name='wdsi[reshow_after-time]'><option value=''></option>";
+		$time_box = "<div class='psource-ui-select'><select name='wdsi[reshow_after-time]'><option value=''></option>";
 		foreach ($_times as $_time) {
 			$selected = $_time == $reshow_after_time ? 'selected="selected"' : '';
 			$time_box .= "<option value='{$_time}' {$selected}>{$_time}</option>";
 		}
 		$time_box .= "</select></div>";
 
-		$unit_box = "<div class='wpmudev-ui-select'><select name='wdsi[reshow_after-units]'><option value=''></option>";
+		$unit_box = "<div class='psource-ui-select'><select name='wdsi[reshow_after-units]'><option value=''></option>";
 		foreach ($_units as $key => $_unit) {
 			$selected = $key == $reshow_after_units ? 'selected="selected"' : '';
 			$unit_box .= "<option value='{$key}' {$selected}>{$_unit}</option>";
@@ -163,9 +163,9 @@ class Wdsi_AdminFormRenderer {
 		$unit_box .= "</select></div>";
 
 		echo '<div class="wdsi-reshow_after" ' . ($enabled ? '' : 'style="display:none"') . ' >' .
-			'<label for="">' . __('Zeige die Nachrichten erneut an, nachdem:', 'wdsi') . '</label><br />' .
-			"{$time_box} {$unit_box}" .
-		'</div>';
+		'<label for="">' . __('Zeige die Nachrichten erneut an, nach:', 'wdsi') . '</label><br />' .
+		"{$time_box} {$unit_box}" .
+	'</div>';
 	}
 	
 	function create_position_box () {
@@ -337,7 +337,7 @@ class Wdsi_AdminFormRenderer {
 		$current = $this->_get_option('mailchimp-default_list');
 
 		echo '<label>' . __('Standardabonnementliste:', 'wdsi') . ' </label>';
-		echo '<div class="wpmudev-ui-select"><select name="wdsi[mailchimp-default_list]">';
+		echo '<div class="psource-ui-select"><select name="wdsi[mailchimp-default_list]">';
 		echo '<option></option>';
 		foreach ($lists as $list) {
 			$selected = $list['id'] == $current ? 'selected="selected"' : '';
@@ -370,7 +370,7 @@ class Wdsi_AdminFormRenderer {
 			'<input type="hidden" name="wdsi[allow_shortcodes]" value="" />' .
 			'<input type="checkbox" name="wdsi[allow_shortcodes]" id="wdsi-allow_shortcodes" value="1" ' . ($this->_get_option('allow_shortcodes') ? 'checked="checked"' : '') . ' />' .
 			'&nbsp;' .
-			'<label for="wdsi-allow_shortcodes">' . __('Erlaube shortcodes', 'wdsi') . '</label>' . 
+			'<label for="wdsi-allow_shortcodes">' . __('Erlaube Shortcodes', 'wdsi') . '</label>' . 
 			$this->_create_hint(__('Durch Aktivieren dieser Option können Shortcodes in Deinen Slide-In-Nachrichten verarbeitet werden.', 'wdsi')) .
 		'';
 		echo '' .

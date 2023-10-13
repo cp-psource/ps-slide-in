@@ -323,7 +323,7 @@ $(function () {
 		}
 	}
 
-	$(window).load(function(){
+	$(window).on('load', function(){
 		$(document).trigger("wdsi-init");
 	});
 
@@ -354,7 +354,7 @@ $(function () {
 		;
 		if ( ! css_support('transition') )
 			legacy = true;
-		if (!is_timed) $(window).scroll(slidein_scroll);
+		$(window).on('scroll', slidein_scroll);
 		// Call the slidein_scroll first here, so we don't need to wait for scroll event before it show the slide in :))
 		slidein_scroll();
 	});

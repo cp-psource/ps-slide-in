@@ -163,7 +163,7 @@ jQuery(document).ready(function($){
 		$(this).data('slidein-running', '0');
 	}
 
-	$(window).load(function(){
+	$(window).on('load', function() {
 		// Initiate
 		$('.slidein').each(function(){
 			if ( $(this).is('.slidein-top, .slidein-bottom') ) {
@@ -177,7 +177,7 @@ jQuery(document).ready(function($){
 		});
 		if ( ! css_support('transition') )
 			legacy = true;
-		$(window).scroll(slidein_scroll);
+			$(window).on('scroll', slidein_scroll);
 		// Call the slidein_scroll first here, so we don't need to wait for scroll event before it show the slide in :))
 		slidein_scroll();
 	});

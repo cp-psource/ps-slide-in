@@ -145,7 +145,7 @@ class Wdsi_SlideIn {
 		global $post;
 		$show_options = get_post_meta($post->ID, 'wdsi_show_if', true);
 		
-		echo '<div class="wpmudev-ui">' .
+		echo '<div class="psource-ui">' .
 			'<input type="checkbox" name="not_in_the_pool" id="wdsi-not_in_the_pool" value="1" ' .
 				($post->post_status == self::NOT_IN_POOL_STATUS ? 'checked="checked"' : '') .
 			' />' .
@@ -155,7 +155,7 @@ class Wdsi_SlideIn {
 			$this->_create_hint(__('Slide Ins außerhalb des Pools können einzelnen Posts zugewiesen werden, wobei die Standardeinstellungen überschrieben werden', 'wdsi')) .
 		'</div>';
 
-		echo '<div id="wdsi-conditions-container" class="wpmudev-ui" style="display:none">';
+		echo '<div id="wdsi-conditions-container" class="psource-ui" style="display:none">';
 		
 		echo '<h4>' . __('Nachricht anzeigen, wenn:', 'wdsi') . '</h4>';
 
@@ -225,7 +225,7 @@ class Wdsi_SlideIn {
 		$opts = get_post_meta($post->ID, 'wdsi-type', true);
 		$type = wdsi_getval($opts, 'content_type', 'text');
 
-		echo '<div class="wpmudev-ui">';
+		echo '<div class="psource-ui">';
 
 		echo '' .
 			'<input type="radio" name="wdsi-type[content_type]" id="wdsi-content_type-text" value="text" ' . ('text' == $type ? 'checked="checked"' : '') . ' />' .
@@ -270,7 +270,7 @@ class Wdsi_SlideIn {
 			$current = wdsi_getval($opts, 'mailchimp-default_list', wdsi_getval($defaults, 'mailchimp-default_list'));
 
 			echo '<label>' . __('Standardabonnementliste:', 'wdsi') . ' </label>';
-			echo '<div class="wpmudev-ui-select"><select name="wdsi-type[mailchimp-default_list]">';
+			echo '<div class="psource-ui-select"><select name="wdsi-type[mailchimp-default_list]">';
 			echo '<option></option>';
 			foreach ($lists as $list) {
 				$selected = $list['id'] == $current ? 'selected="selected"' : '';
@@ -312,7 +312,7 @@ class Wdsi_SlideIn {
 		echo '<div id="wdsi-content_type-options-related" class="wdsi-content_type" style="display:none">';
 		$count = wdsi_getval($opts, 'related-posts_count', 3);
 		echo '<label>' . __('Zeige so viele verwandte Beiträge:', 'wdsi') . ' </label>';
-		echo '<div class="wpmudev-ui-select"><select name="wdsi-type[related-posts_count]">';
+		echo '<div class="psource-ui-select"><select name="wdsi-type[related-posts_count]">';
 		foreach (range(1, 10) as $item) {
 			$selected = $item == $count ? 'selected="selected"' : '';
 			echo '<option value="' . esc_attr($item) . '" ' . $selected . '>' . $item . '</option>';
@@ -324,7 +324,7 @@ class Wdsi_SlideIn {
 		), 'objects');
 		$related_tax = wdsi_getval($opts, 'related-taxonomy', 'post_tag');
 		echo '<label>' . __('Verwandte Taxonomie:', 'wdsi') . ' </label>';
-		echo '<div class="wpmudev-ui-select"><select name="wdsi-type[related-taxonomy]">';
+		echo '<div class="psource-ui-select"><select name="wdsi-type[related-taxonomy]">';
 		foreach ($taxonomies as $tax => $item) {
 			$selected = $tax == $related_tax ? 'selected="selected"' : '';
 			echo '<option value="' . esc_attr($tax) . '" ' . $selected . '>' . $item->label . '</option>';
@@ -374,17 +374,17 @@ class Wdsi_SlideIn {
 		$width = wdsi_getval($opts, 'width');
 
 		$override_checked = ($percentage || $timeout || $selector || $services || $pos || $width) ? 'checked="checked"' : '';
-		echo '<p class="wpmudev-ui">' .
+		echo '<p class="psource-ui">' .
 			'<input type="checkbox" id="wdsi-override_show_if" name="wsdi-appearance_override" value="1" ' . $override_checked . ' /> ' .
 			'<label for="wdsi-override_show_if">' . __('Globale Einstellungen überschreiben', 'wdsi') . '</label>' .
 		'</p>';
 
-		echo '<div id="wdsi-show_after_overrides-container" class="wpmudev-ui" style="display:none">';
+		echo '<div id="wdsi-show_after_overrides-container" class="psource-ui" style="display:none">';
 
 		// Initial condition
 		echo '<fieldset id="wdsi-show_after"><legend>' . __('Zeigen nach', 'wdsi') . '</legend>';
 		
-		$percentage_select = '<div class="wpmudev-ui-select"><select name="wdsi[show_after-rule]" ' . ($percentage ? '' : 'disabled="disabled"') . '>';
+		$percentage_select = '<div class="psource-ui-select"><select name="wdsi[show_after-rule]" ' . ($percentage ? '' : 'disabled="disabled"') . '>';
 		for ($i=1; $i<100; $i++) {
 			$selected = ($i == $value) ? 'selected="selected"' : '';
 			$percentage_select .= "<option value='{$i}' {$selected}>{$i}&nbsp;</option>";
@@ -430,14 +430,14 @@ class Wdsi_SlideIn {
 			'h' => __('Stunden', 'wdsi'),
 		);
 
-		echo "<div class='wpmudev-ui-select'><select name='wdsi[show_for-time]'>";
+		echo "<div class='psource-ui-select'><select name='wdsi[show_for-time]'>";
 		foreach ($_times as $_time) {
 			$selected = $_time == $time ? 'selected="selected"' : '';
 			echo "<option value='{$_time}' {$selected}>{$_time}</option>";
 		}
 		echo "</select></div>";
 
-		echo "<div class='wpmudev-ui-select'><select name='wdsi[show_for-unit]'>";
+		echo "<div class='psource-ui-select'><select name='wdsi[show_for-unit]'>";
 		foreach ($_units as $key => $_unit) {
 			$selected = $key == $unit ? 'selected="selected"' : '';
 			echo "<option value='{$key}' {$selected}>{$_unit}</option>";
@@ -447,7 +447,7 @@ class Wdsi_SlideIn {
 
 		// Position
 		echo '<fieldset id="wdsi-position"><legend>' . __('Position', 'wdsi') . '</legend>';
-		echo '<div  class="wpmudev-ui-element_container">';
+		echo '<div  class="psource-ui-element_container">';
 		echo '<div class="position-control">' .
 			$this->_create_radiobox('position', 'left', $pos) .
 			$this->_create_radiobox('position', 'top', $pos) .
