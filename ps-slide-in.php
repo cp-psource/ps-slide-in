@@ -2,7 +2,7 @@
 /*
 Plugin Name: PS Slide-In
 Plugin URI: https://n3rds.work/piestingtal-source-project/ps-slide-in/
-Description: Erstellen und verwalte schöne Marketingbotschaften und konvertiere dann Deine Zielgruppe so, dass sie nicht gestört wird.
+Description: Erstelle und verwalte schöne Marketingbotschaften und konvertiere dann Deine Zielgruppe so, dass sie nicht gestört wird.
 Version: 1.3.9
 Text Domain: wdsi
 Author: WMS N@W

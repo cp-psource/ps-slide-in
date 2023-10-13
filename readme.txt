@@ -1,6 +1,17 @@
-# Slide In
+=== PS Slide-In ===
+Contributors: DerN3rd (WMS N@W)
+Donate link: https://n3rds.work/spendenaktionen/unterstuetze-unsere-psource-free-werke/
+Tags: widget, custom,post, wordpress, classicpress
+Requires at least: 4.9
+Tested up to: 4.9
+Stable tag: 1.3.9
+Requires PHP: 7.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Erstelle und verwalte schöne Marketingbotschaften und konvertiere dann Deine Zielgruppe so, dass sie nicht gestört wird.
+
+== Description ==
 
 ## Slide In erstellt auffällige Marketingbotschaften, die Dein Publikum fesseln und es in Dein Produkt oder Deine Dienstleistung umwandeln.
 
@@ -134,3 +145,33 @@ Hier wählst Du die Position und Breite des Slide-Ins aus, ob es abgerundete ode
 ![Diese Folie wird links platziert, mit einer Breite von 400 Pixeln und einem abgerundeten dunklen Thema mit Rot als Primärfarbe. Es sind mehrere Social-Media-Share-Optionen angehängt.](https://premium.wpmudev.org/wp-content/uploads/2013/03/dark-red-rounded-left-copy.png)
 
   Dieses Slide-In befindet sich auf der linken Seite, hat eine Breite von 400 Pixel und ein abgerundetes dunkles Thema mit Rot als Primärfarbe. Es sind mehrere Optionen zum Teilen in sozialen Medien angehängt.
+
+[POWERED BY PSOURCE](https://n3rds.work/psource_kategorien/psource-plugins/)
+
+[Projektseite](https://n3rds.work/piestingtal-source-project/ps-slide-in/)
+[GitHub](https://github.com/cp-psource/ps-slide-in)
+
+== Mehr PSOURCE ==
+
+= Finde mehr Piestingtal.Source =
+
+Wirf einen Blick in unser [PSOURCE Sortiment](https://n3rds.work/psource_kategorien/psource-plugins/) und hole noch mehr aus Deinem WordPress/ClassicPress!
+
+Halte Dich mit unserem [Newsletter](https://n3rds.work/webmasterservice-n3rdswork-digalize-das-piestingtal/newsletter-management/) über unsere Piestingtal.Source informiert!
+
+== Hilf uns ==
+
+Viele, viele Kaffees konsumieren wir während wir an unseren Plugins und Themes arbeiten.
+Wie wärs? Möchtest Du uns mit einer Kaffee-Spende bei der Arbeit an unseren Plugins unterstützen?
+
+= Unterstütze uns =
+
+Mach eine [Spende per Überweisung oder PayPal](https://n3rds.work/spendenaktionen/unterstuetze-unsere-psource-free-werke/) wir Danken Dir!
+
+Halte Dich mit unserem [Newsletter](https://n3rds.work/webmasterservice-n3rdswork-digalize-das-piestingtal/newsletter-management/) über unsere Piestingtal.Source informiert!
+
+== ChangeLog ==
+
+= 1.4.0 =
+
+* PSOURCE RELEASE
