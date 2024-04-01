@@ -1,16 +1,16 @@
 <?php
 /*
 Plugin Name: PS Slide-In
-Plugin URI: https://n3rds.work/piestingtal-source-project/ps-slide-in/
+Plugin URI: https://cp-psource.github.io/ps-slide-in/
 Description: Erstelle und verwalte schöne Marketingbotschaften und konvertiere dann Deine Zielgruppe so, dass sie nicht gestört wird.
 Version: 1.4.0
 Text Domain: wdsi
-Author: WMS N@W
-Author URI: https://n3rds.work
+Author: PSOURCE
+Author URI: https://github.com/cp-psource
 
 
-Copyright 2020-2023 WMS N@W (https://n3rds.work) 
-Authors - DerN3rd (WMS N@W)
+Copyright 2020-2023 PSOURCE (https://github.com/cp-psource) 
+Authors - DerN3rd (PSOURCE)
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License (Version 2 - GPLv2) as published by
 the Free Software Foundation.
@@ -24,13 +24,26 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-require 'psource/psource-plugin-update/psource-plugin-updater.php';
-use Psource\PluginUpdateChecker\v5\PucFactory;
-$MyUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://n3rds.work//wp-update-server/?action=get_metadata&slug=ps-slide-in', 
-	__FILE__, 
-	'ps-slide-in' 
+
+/**
+ * @@@@@@@@@@@@@@@@@ PS UPDATER 1.3 @@@@@@@@@@@
+ **/
+require 'psource/psource-plugin-update/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+ 
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/cp-psource/ps-slide-in',
+	__FILE__,
+	'ps-slide-in'
 );
+ 
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+
+/**
+ * @@@@@@@@@@@@@@@@@ ENDE PS UPDATER 1.3 @@@@@@@@@@@
+ **/
+
 
 define ('WDSI_CURRENT_VERSION', '1.4.0');
 define ('WDSI_PLUGIN_SELF_DIRNAME', basename(dirname(__FILE__)));

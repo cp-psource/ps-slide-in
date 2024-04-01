@@ -9,10 +9,12 @@ class Wdsi_Options {
 	/**
 	 * Gets a single option from options storage.
 	 */
-	function get_option ($key) {
-		//$opts = WP_ALLOW_MULTISITE ? get_site_option('wdsi') : get_option('wdsi');
-		$opts = get_option('wdsi');
-		return @$opts[$key];
+	function get_option($key) {
+    $opts = get_option('wdsi');
+    if (is_array($opts) && array_key_exists($key, $opts)) {
+        return $opts[$key];
+    }
+    return null; // Or handle the absence of the key however you prefer
 	}
 
 	/**
